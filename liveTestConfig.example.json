@@ -1,0 +1,6 @@
+{
+    "url": "https://nessus.test.server",
+    "port": 8834,
+    "username": "username",
+    "password": "password"
+}
