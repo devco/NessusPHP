@@ -35,6 +35,9 @@ trait Report
         return $reports;
     }
 
+    /**
+     * @param $uuid Report name (uuid).
+     */
     public function reportHosts($uuid)
     {
         $hosts = array();
@@ -54,6 +57,9 @@ trait Report
         return $hosts;
     }
 
+    /**
+     * @param $uuid Report name (uuid).
+     */
     public function reportDelete($uuid)
     {
         $response = $this->connect('report/delete', ['report' => $uuid]);
@@ -63,6 +69,16 @@ trait Report
                 'name' => $response['report']['name']
             ];
         }
+    }
+
+    /**
+     * @param $uuid Report name (uuid).
+     *
+     * @return string xml
+     */
+    public function reportDownload($uuid)
+    {
+        return $this->connect('file/report/download', ['report' => $uuid], true);
     }
 
     /**

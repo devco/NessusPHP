@@ -242,6 +242,18 @@ class ScanTest extends LiveTestAbstract
     /**
      * @depends testReportList
      */
+    public function testReportDownload($report)
+    {
+        $xml = self::$client->reportDownload($report['name']);
+
+        $doc = @simplexml_load_string($xml);
+
+        $this->assertInstanceOf('SimpleXMLElement', $doc);
+    }
+
+    /**
+     * @depends testReportList
+     */
     public function testReportDelete($report)
     {
         $report = self::$client->reportDelete($report['name']);
