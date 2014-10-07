@@ -1,0 +1,25 @@
+{
+    "name": "oodgaard/php-nessus-api",
+    "description": "PHP wrapper functions for interfacing with the Nessus API",
+    "require": {
+        "php": ">=5.4.0, <6.0.0",
+        "guzzle/http": "*",
+        "guzzle/plugin": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.2.x"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Otto Odgaard",
+            "email": "otto.odgaard@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-0": {
+            "Nessus": "src/"
+        }
+    }
+}
