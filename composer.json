@@ -1,5 +1,5 @@
 {
-    "name": "oodgaard/php-nessus-api",
+    "name": "devco/nessus-php",
     "description": "PHP wrapper functions for interfacing with the Nessus API",
     "require": {
         "php": ">=5.4.0, <6.0.0",
