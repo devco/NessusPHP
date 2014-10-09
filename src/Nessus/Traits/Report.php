@@ -60,6 +60,28 @@ trait Report
     /**
      * @param $uuid Report name (uuid).
      */
+    public function report2Hosts($uuid)
+    {
+        $hosts = array();
+
+        $response = $this->connect('report2/hosts', ['report' => $uuid]);
+
+        if (isset($response['hostlist']['host'])) {
+            if (isset($response['hostlist']['host']['0'])) {
+                foreach ($response['hostlist']['host'] as $host) {
+                    $hosts[] = $this->hostToArray($host);
+                }
+            } else {
+                $hosts[] = $this->hostToArray($response['hostlist']['host']);
+            }
+        }
+
+        return $hosts;
+    }
+
+    /**
+     * @param $uuid Report name (uuid).
+     */
     public function reportDelete($uuid)
     {
         $response = $this->connect('report/delete', ['report' => $uuid]);
