@@ -148,6 +148,27 @@ class ScanTest extends LiveTestAbstract
     }
 
     /**
+     * @depends testReportList
+     */
+    public function testReport2Hosts($report)
+    {
+        $hosts = self::$client->report2Hosts($report['name']);
+
+        $this->assertArrayHasKey('0', $hosts);
+
+        $host = $hosts['0'];
+
+        $this->assertArrayHasKey('hostname', $host);
+        $this->assertArrayHasKey('severity', $host);
+        $this->assertArrayHasKey('scanprogresscurrent', $host);
+        $this->assertArrayHasKey('scanprogresstotal', $host);
+        $this->assertArrayHasKey('numchecksconsidered', $host);
+        $this->assertArrayHasKey('totalchecksconsidered', $host);
+        $this->assertArrayHasKey('severitycount', $host);
+        $this->assertArrayHasKey('0', $host['severitycount']);
+    }
+
+    /**
      * @depends testScanList
      */
     public function testScanPause($scan)
